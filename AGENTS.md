@@ -119,6 +119,25 @@
 - Docker Compose
 - Nginx Reverse Proxy
 
+초기 MVP는 AWS EC2 단일 서버에서 실행한다.
+
+Docker Compose 파일 기본 위치는 `infra/docker/docker-compose.yml` 이다.
+
+Compose 구성 대상:
+- web
+- api
+- db
+- mock-server
+- nginx
+
+외부 공개 포트는 기본적으로 80만 사용하고, 추후 443만 추가한다.
+
+PostgreSQL은 Docker 내부 네트워크에서만 접근한다.
+
+DB 포트 5432는 외부에 직접 노출하지 않는다.
+
+nginx가 외부 요청을 web, api, mock-server 로 라우팅한다.
+
 ---
 
 # Directory Principles
@@ -194,6 +213,7 @@ Task 기반 작업 관리
 - Mock 응답은 현실적으로 구성
 - 실제 API 계약을 고려하여 설계
 - Adapter 패턴 기반 구조 유지
+- 실제 외부 연동 API는 직접 호출하지 않고 mock-server 또는 Adapter를 통해 처리
 
 ---
 

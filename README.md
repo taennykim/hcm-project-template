@@ -118,6 +118,8 @@
 
 초기 MVP는 AWS EC2 단일 서버에 Docker Compose 기반으로 배포한다.
 
+Docker Compose 설정 기본 위치는 `infra/docker/docker-compose.yml` 이다.
+
 구성:
 - web: Next.js
 - api: FastAPI
@@ -125,7 +127,22 @@
 - mock-server: 외부 연동 Mock API
 - nginx: Reverse Proxy
 
+EC2 서버에는 Docker와 Docker Compose가 설치되어 있어야 한다.
+
+외부 공개 포트는 초기에는 80만 사용하고, 추후 443을 추가한다.
+
+PostgreSQL 5432 포트는 외부에 직접 노출하지 않는다.
+
 추후 필요 시 ECS/EKS 기반 구조로 확장 가능하도록 설계한다.
+
+## 실행 예시
+
+```bash
+cd infra/docker
+docker compose up -d
+docker compose ps
+docker compose logs -f
+```
 
 ---
 
