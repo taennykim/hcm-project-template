@@ -39,4 +39,5 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-11
-- 상태: TODO
+- 상태: IN_PROGRESS
+- 2026-05-12: Docker Compose bootstrap 작업 시작
