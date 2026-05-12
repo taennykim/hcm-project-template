@@ -43,7 +43,9 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-11
-- 상태: IN_PROGRESS
-- 갱신일: 2026-05-12
-- 메모: web, api, mock-server 기본 부트스트랩 진행 중
-
+- 상태: DONE
+- 2026-05-12: 기본 프로젝트 디렉토리 구조 확인 완료
+- 2026-05-12: web/api/mock-server 최소 앱 구조 확인 완료
+- 2026-05-12: infra/docker 기본 실행 구조 확인 완료
+- 2026-05-12: HCM-002 Docker Compose 검증 결과를 통해 bootstrap 완료 판단
+- 2026-05-12: /, /api/health, /mock/health 응답 확인 기반으로 완료 처리

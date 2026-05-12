@@ -41,10 +41,16 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-11
-- 상태: IN_PROGRESS
+- 상태: DONE
 - 2026-05-12: Docker Compose bootstrap 작업 시작
 - 2026-05-12: 최소 web/api/mock-server 앱 코드 생성
 - 2026-05-12: Dockerfile 생성
 - 2026-05-12: compose build/up 검증 준비
 - 2026-05-12: 502 Bad Gateway 원인 점검 및 startup 순서 수정
 - 2026-05-12: 내부 포트 비노출 원칙과 문서/compose 정합성 확인
+- 2026-05-12: Docker Compose MVP 실행 환경 구성 완료
+- 2026-05-12: web/api/mock-server 최소 앱 생성 완료
+- 2026-05-12: nginx reverse proxy 구성 완료
+- 2026-05-12: PostgreSQL 내부 네트워크 구성 완료
+- 2026-05-12: host 공개 포트는 nginx 80만 유지
+- 2026-05-12: /, /api/health, /mock/health 검증 완료
