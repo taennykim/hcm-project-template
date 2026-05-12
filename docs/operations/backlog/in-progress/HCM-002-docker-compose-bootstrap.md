@@ -29,6 +29,8 @@ AWS EC2 단일 서버에서 Simple HCM SaaS MVP를 실행할 수 있도록 Docke
 - api /health endpoint 응답 가능
 - nginx를 통해 web 접근 가능
 - PostgreSQL 포트는 외부에 직접 노출되지 않음
+- nginx만 host 80 포트를 publish 함
+- web/api/mock-server/db 포트는 Docker 내부 네트워크에서만 접근함
 
 ## REAL/MOCK 여부
 REAL
@@ -41,3 +43,8 @@ REAL
 - 생성일: 2026-05-11
 - 상태: IN_PROGRESS
 - 2026-05-12: Docker Compose bootstrap 작업 시작
+- 2026-05-12: 최소 web/api/mock-server 앱 코드 생성
+- 2026-05-12: Dockerfile 생성
+- 2026-05-12: compose build/up 검증 준비
+- 2026-05-12: 502 Bad Gateway 원인 점검 및 startup 순서 수정
+- 2026-05-12: 내부 포트 비노출 원칙과 문서/compose 정합성 확인

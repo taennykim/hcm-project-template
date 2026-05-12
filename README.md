@@ -133,6 +133,10 @@ EC2 서버에는 Docker와 Docker Compose가 설치되어 있어야 한다.
 
 PostgreSQL 5432 포트는 외부에 직접 노출하지 않는다.
 
+nginx만 host 80 포트를 publish 한다.
+
+web 3000, api 8000, mock-server 9000, db 5432 포트는 Docker 내부 네트워크에서만 접근한다.
+
 추후 필요 시 ECS/EKS 기반 구조로 확장 가능하도록 설계한다.
 
 ## 실행 예시

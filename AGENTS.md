@@ -136,6 +136,10 @@ PostgreSQL은 Docker 내부 네트워크에서만 접근한다.
 
 DB 포트 5432는 외부에 직접 노출하지 않는다.
 
+nginx만 host 80 포트를 publish 한다.
+
+web 3000, api 8000, mock-server 9000, db 5432 포트는 Docker 내부 네트워크에서만 접근한다.
+
 nginx가 외부 요청을 web, api, mock-server 로 라우팅한다.
 
 ---
@@ -312,6 +316,10 @@ Docker Compose 구성 대상:
 - db
 - mock-server
 - nginx
+
+nginx만 외부 공개 포트를 가진다.
+
+web, api, mock-server, db 포트는 host에 직접 publish 하지 않는다.
 
 ---
 

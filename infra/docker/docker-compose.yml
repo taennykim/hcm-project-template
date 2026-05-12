@@ -10,6 +10,12 @@ services:
       - "${WEB_PORT}"
     networks:
       - hcm-net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
 
   api:
     build:
@@ -22,8 +28,17 @@ services:
       DATABASE_URL: ${DATABASE_URL}
     expose:
       - "${API_PORT}"
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - hcm-net
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
   db:
     image: postgres:16-alpine
@@ -39,6 +54,12 @@ services:
       - hcm-postgres-data:/var/lib/postgresql/data
     networks:
       - hcm-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
   mock-server:
     build:
@@ -51,15 +72,24 @@ services:
       - "${MOCK_SERVER_PORT}"
     networks:
       - hcm-net
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"from urllib.request import urlopen; urlopen('http://127.0.0.1:9000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
   nginx:
     image: nginx:1.27-alpine
     container_name: hcm-nginx
     restart: unless-stopped
     depends_on:
-      - web
-      - api
-      - mock-server
+      web:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+      mock-server:
+        condition: service_healthy
     ports:
       - "80:80"
     volumes:
