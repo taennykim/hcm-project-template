@@ -292,6 +292,44 @@ daily/YYYY-MM-DD.md 형식 사용
 
 ---
 
+# Design Sync Rules
+
+기능, API, DB 구조, 메뉴 구조, 기술스택이 변경될 때는 관련 설계 문서를 함께 확인하고 필요한 경우 업데이트한다.
+
+## 기준 문서
+
+- docs/product/menu-structure.md
+- docs/domain/domain-model.md
+- docs/data/erd.md
+- docs/architecture/tech-stack.md
+
+## 업데이트 기준
+
+다음 변경이 발생하면 설계 문서 영향 여부를 반드시 확인한다.
+
+- 신규 메뉴 추가
+- 기존 메뉴 상태 변경
+- 신규 도메인 추가
+- 도메인 필드 변경
+- API 추가/변경/삭제
+- 테이블 추가/변경/삭제
+- tenant_id 정책 변경
+- REAL / MOCK / COMING_SOON 상태 변경
+- 기술스택 변경
+- 배포 구조 변경
+
+## 작업 규칙
+
+- 코드 변경 후 관련 설계 문서를 확인한다.
+- 영향이 있으면 관련 문서를 업데이트한다.
+- 영향이 없으면 Task 문서 작업 로그에 '설계 문서 영향 없음'을 기록한다.
+- 문서와 코드가 충돌하면 AGENTS.md, README.md, Task 문서를 우선 확인하고 수정 방향을 제안한다.
+- 기술스택의 기준 문서는 docs/architecture/tech-stack.md로 한다.
+- README.md는 기술스택 요약만 유지한다.
+- AGENTS.md는 Codex 개발 규칙과 문서 동기화 규칙을 유지한다.
+
+---
+
 # AI Working Rules
 
 작업 전:

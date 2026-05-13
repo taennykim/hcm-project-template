@@ -112,6 +112,10 @@
 ## Reverse Proxy
 - Nginx
 
+상세 기술스택 기준 문서는 `docs/architecture/tech-stack.md`를 참조한다.
+
+README.md에는 기술스택 요약만 유지한다.
+
 ---
 
 # 배포 전략

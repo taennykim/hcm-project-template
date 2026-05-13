@@ -1,0 +1,66 @@
+# Menu Structure
+
+## 방향
+Simple HCM SaaS는 관리자 중심 웹 UX를 기준으로 구성한다.
+모바일 앱은 MVP 범위에서 제외한다.
+전체적으로 HCM 제품처럼 보이되, 초기 MVP 범위만 실제 구현하고 나머지는 MOCK 또는 COMING_SOON으로 통제한다.
+
+## 메뉴 구조
+
+### Dashboard
+- 개요 대시보드: REAL
+  - 회사 기본 현황
+  - 직원 수 요약
+  - 오늘 처리할 항목 요약
+
+### Company
+- 회사 정보: REAL
+- 회사 정책 설정: REAL
+
+### Employee
+- 직원 목록: REAL
+- 직원 등록: REAL
+- 직원 상세: REAL
+
+### Attendance
+- 근태 입력: REAL
+- 근태 기록 조회: REAL
+- 월 근태 집계: REAL
+
+### Payroll
+- 급여 실행: MOCK
+- 급여 항목 검토: MOCK
+- 급여명세서 출력: MOCK
+
+### Approval
+- 승인함: COMING_SOON
+- 결재선 관리: COMING_SOON
+
+### Leave
+- 휴가 유형 설정: COMING_SOON
+- 휴가 신청/조회: COMING_SOON
+
+### Org
+- 부서 관리: MOCK
+- 직책 관리: MOCK
+
+### Documents
+- 전자계약: MOCK
+- 인사발령 문서: MOCK
+
+### Integration
+- 4대보험: COMING_SOON
+- 세무신고: COMING_SOON
+- 회계연동: COMING_SOON
+
+## MVP 핵심 흐름
+1. 직원 등록
+2. 근태 입력
+3. 월 근태 집계
+4. 급여 생성
+5. 급여명세서 출력
+
+## 상태 기준
+- REAL: 실제 DB/API/비즈니스 로직 구현
+- MOCK: 화면과 샘플 응답 중심 구현
+- COMING_SOON: 메뉴만 노출
