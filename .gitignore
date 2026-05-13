@@ -1,3 +1,7 @@
 infra/docker/.env
+node_modules/
+.next/
+.venv/
+.venv-verify/
 __pycache__/
 *.pyc

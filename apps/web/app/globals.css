@@ -237,6 +237,10 @@ input {
   gap: 16px;
 }
 
+.content-grid-single {
+  grid-template-columns: 1fr;
+}
+
 .ui-card {
   border: 1px solid rgba(150, 169, 192, 0.18);
   border-radius: 24px;
@@ -401,6 +405,72 @@ input {
 .muted-text {
   margin: 0;
   color: #698098;
+}
+
+.inline-alert {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff3da;
+  color: #9d6800;
+}
+
+.table-footnote {
+  margin-top: 14px;
+}
+
+.slide-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(420px, 100%);
+  height: 100vh;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 1px solid rgba(146, 165, 188, 0.18);
+  box-shadow: -18px 0 48px rgba(44, 67, 95, 0.12);
+  transform: translateX(104%);
+  transition: transform 180ms ease;
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.slide-panel.is-open {
+  transform: translateX(0);
+}
+
+.slide-panel-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.slide-panel-title {
+  margin: 6px 0 0;
+  font-size: 1.5rem;
+  color: #173756;
+}
+
+.employee-form {
+  display: grid;
+  gap: 14px;
+}
+
+.employee-form label {
+  display: grid;
+  gap: 8px;
+  color: #49637d;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.slide-panel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
 }
 
 .feature-card .ui-card-header {

@@ -71,4 +71,10 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: TODO
+- 상태: DONE
+- 2026-05-13: Employee Bootstrap 구현 시작
+- 2026-05-13: Employee API 기본 라우터 및 in-memory service 구현 완료
+- 2026-05-13: tenant_id/company_id 기준 seed employee 및 등록 검증 반영
+- 2026-05-13: 직원관리 화면 bootstrap 및 등록 패널 구현 완료
+- 2026-05-13: employee status/employment_type 입력값 제약 및 사번 중복 검증 추가
+- 2026-05-13: /api/employees, /api/employees/{employee_id} 기준 API import/build 검증 진행

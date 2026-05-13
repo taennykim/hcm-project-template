@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 
+from app.domains.employee.router import router as employee_router
 from app.domains.tenant.router import router as tenant_router
 
 
 app = FastAPI(title="Simple HCM API")
 
 app.include_router(tenant_router)
+app.include_router(employee_router)
 
 
 @app.get("/health")
