@@ -44,4 +44,6 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: TODO
+- 상태: IN_PROGRESS
+- 2026-05-13: Tenant/Company bootstrap 구현 시작
+- 2026-05-13: api unhealthy 원인 점검 및 Python 3.10 호환성 수정
