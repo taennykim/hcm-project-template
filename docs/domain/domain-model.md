@@ -74,3 +74,16 @@
   - created_at
   - updated_at
   - deleted_at
+
+## Mock / Stub / Adapter 기준
+- 실제 외부 API는 MVP에서 직접 호출하지 않는다.
+- 외부 연동 대상은 `mock-server` 또는 Adapter 구조로 분리한다.
+- Mock 대상:
+  - 전자계약
+  - 급여명세서 PDF
+  - 계좌검증
+  - 홈택스
+  - 4대보험
+  - 회계연동
+- Mock은 개발 및 시연용으로 현실적인 샘플 응답을 제공한다.
+- 추후 Real Adapter로 교체 가능해야 한다.

@@ -4,11 +4,12 @@
 Simple HCM SaaS는 관리자 중심 웹 UX를 기준으로 구성한다.
 모바일 앱은 MVP 범위에서 제외한다.
 전체적으로 HCM 제품처럼 보이되, 초기 MVP 범위만 실제 구현하고 나머지는 MOCK 또는 COMING_SOON으로 통제한다.
+UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 
 ## 메뉴 구조
 
 ### Dashboard
-- 개요 대시보드: REAL
+- 개요 대시보드: REAL-LITE
   - 회사 기본 현황
   - 직원 수 요약
   - 오늘 처리할 항목 요약
@@ -62,5 +63,6 @@ Simple HCM SaaS는 관리자 중심 웹 UX를 기준으로 구성한다.
 
 ## 상태 기준
 - REAL: 실제 DB/API/비즈니스 로직 구현
+- REAL-LITE: 실제 데이터 일부를 사용하되, 복합 지표나 고급 통계 없이 최소 운영 화면만 제공
 - MOCK: 화면과 샘플 응답 중심 구현
 - COMING_SOON: 메뉴만 노출

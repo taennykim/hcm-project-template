@@ -109,6 +109,97 @@
 
 ```mermaid
 erDiagram
+    TENANTS {
+        string id PK
+        string name
+        datetime created_at
+        datetime updated_at
+    }
+    COMPANIES {
+        string id PK
+        string tenant_id FK
+        string name
+        string business_registration_number
+        string representative_name
+        json policy_config
+        datetime created_at
+        datetime updated_at
+        datetime deleted_at
+    }
+    EMPLOYEES {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string employee_no
+        string name
+        string employment_type
+        date hire_date
+        string status
+        datetime created_at
+        datetime updated_at
+        datetime deleted_at
+    }
+    ATTENDANCE_RECORDS {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string employee_id FK
+        date work_date
+        datetime clock_in_at
+        datetime clock_out_at
+        string attendance_type
+        datetime created_at
+        datetime updated_at
+        datetime deleted_at
+    }
+    MONTHLY_ATTENDANCE_SUMMARIES {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string employee_id FK
+        string year_month
+        int total_work_minutes
+        int overtime_minutes
+        int late_count
+        int absent_count
+        datetime created_at
+        datetime updated_at
+    }
+    PAYROLL_RUNS {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string year_month
+        string status
+        datetime executed_at
+        datetime created_at
+        datetime updated_at
+    }
+    PAYROLL_ITEMS {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string payroll_run_id FK
+        string employee_id FK
+        string item_type
+        string item_name
+        decimal amount
+        datetime created_at
+        datetime updated_at
+    }
+    PAYSLIPS {
+        string id PK
+        string tenant_id FK
+        string company_id FK
+        string payroll_run_id FK
+        string employee_id FK
+        datetime issued_at
+        decimal total_earnings
+        decimal total_deductions
+        decimal net_pay
+        datetime created_at
+        datetime updated_at
+    }
     TENANTS ||--o{ COMPANIES : owns
     COMPANIES ||--o{ EMPLOYEES : employs
     COMPANIES ||--o{ ATTENDANCE_RECORDS : records

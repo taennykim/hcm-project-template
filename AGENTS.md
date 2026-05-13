@@ -299,6 +299,7 @@ daily/YYYY-MM-DD.md 형식 사용
 ## 기준 문서
 
 - docs/product/menu-structure.md
+- docs/product/ui-style-guide.md
 - docs/domain/domain-model.md
 - docs/data/erd.md
 - docs/architecture/tech-stack.md
@@ -309,6 +310,8 @@ daily/YYYY-MM-DD.md 형식 사용
 
 - 신규 메뉴 추가
 - 기존 메뉴 상태 변경
+- UI 구조 변경
+- 화면 스타일 방향 변경
 - 신규 도메인 추가
 - 도메인 필드 변경
 - API 추가/변경/삭제
@@ -321,6 +324,7 @@ daily/YYYY-MM-DD.md 형식 사용
 ## 작업 규칙
 
 - 코드 변경 후 관련 설계 문서를 확인한다.
+- UI 변경이 있으면 ui-style-guide.md와 menu-structure.md를 함께 확인한다.
 - 영향이 있으면 관련 문서를 업데이트한다.
 - 영향이 없으면 Task 문서 작업 로그에 '설계 문서 영향 없음'을 기록한다.
 - 문서와 코드가 충돌하면 AGENTS.md, README.md, Task 문서를 우선 확인하고 수정 방향을 제안한다.

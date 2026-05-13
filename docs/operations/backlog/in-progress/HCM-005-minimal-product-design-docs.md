@@ -51,3 +51,8 @@ REAL
 - 생성일: 2026-05-13
 - 상태: IN_PROGRESS
 - 2026-05-13: Minimal Product Design Docs 작성 시작
+- 2026-05-13: ERD Mermaid 필드 보강
+- 2026-05-13: API Style Guide 추가
+- 2026-05-13: Mock/Stub/Adapter 기준 추가
+- 2026-05-13: UI Style Guide 추가
+- 2026-05-13: HCM-004 구현 전 설계 기준 보강
