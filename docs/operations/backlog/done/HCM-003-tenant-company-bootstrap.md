@@ -44,6 +44,12 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: IN_PROGRESS
+- 상태: DONE
 - 2026-05-13: Tenant/Company bootstrap 구현 시작
 - 2026-05-13: api unhealthy 원인 점검 및 Python 3.10 호환성 수정
+- 2026-05-13: Tenant/Company bootstrap API 구현 완료
+- 2026-05-13: tenant_id 기반 멀티테넌트 기준 반영
+- 2026-05-13: dev-company seed 구성 완료
+- 2026-05-13: company policy_config JSON 구조 구현
+- 2026-05-13: /api/companies, /api/companies/dev-company, /api/companies/dev-company/policy 검증 완료
+- 2026-05-13: web UI 및 /api/health 검증 완료
