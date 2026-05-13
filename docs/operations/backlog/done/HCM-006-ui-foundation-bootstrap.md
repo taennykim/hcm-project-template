@@ -70,5 +70,10 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: IN_PROGRESS
+- 상태: DONE
 - 2026-05-13: UI Foundation 구현 시작
+- 2026-05-13: HCM-006 완료
+- 2026-05-13: Admin Console Layout, Sidebar, Header, Page Container 구현 완료
+- 2026-05-13: Button, Card, Badge, Input, Table 기본 UI 컴포넌트 준비 완료
+- 2026-05-13: Dashboard UI 및 navigation 구조 검증 완료
+- 2026-05-13: /, /api/health, /api/companies, /mock/health 검증 완료

@@ -71,3 +71,36 @@ Simple HCM SaaS의 UI는 Modern Enterprise HCM Admin Console을 지향한다.
 - 직원관리: 목록과 등록/수정 폼 중심
 - 근태관리: 일자별 입력과 월 집계 중심
 - 급여관리: 생성 단계와 결과 확인 중심
+
+## Badge System
+
+### Product Scope
+- `REAL`: 실제 DB/API/비즈니스 로직이 연결된 기능
+- `REAL_LITE`: 실제 데이터 일부를 사용하지만 운영 요약 수준으로 단순화한 기능
+- `MOCK`: 샘플 데이터나 Mock 응답 중심 기능
+- `COMING_SOON`: 메뉴 또는 안내만 노출되는 기능
+
+### Employee Status
+- `재직`
+- `휴직`
+- `퇴사`
+- `비활성`
+
+### Attendance Status
+- `출근`
+- `지각`
+- `결근`
+- `휴가`
+- `미입력`
+
+### Payroll Status
+- `초안`
+- `검토중`
+- `생성완료`
+- `오류`
+- `마감완료`
+
+### System
+- `DEV`
+- `LOCAL`
+- `BETA`
