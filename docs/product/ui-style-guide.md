@@ -11,7 +11,9 @@ Simple HCM SaaS의 UI는 Modern Enterprise HCM Admin Console을 지향한다.
 
 ### 디자인 방향
 - 국내 HCM SaaS 업무 화면의 실용성
-- Samsung Knox 같은 Enterprise Admin Console의 신뢰감과 정돈된 구조
+- Modern Enterprise HCM Admin Console 스타일을 기준으로, 신뢰감 있고 정돈된 관리자용 업무 SaaS UI를 지향한다.
+- 현대적인 Enterprise Admin Console의 신뢰감과 정돈된 구조를 참고한다.
+- HR/HCM 업무 SaaS의 실용적인 화면 흐름을 참고한다.
 - 최신 B2B SaaS Dashboard의 가벼운 사용성
 - 특정 제품 UI를 그대로 복제하지 않고 독자적인 Simple HCM SaaS 디자인으로 구성
 
@@ -35,12 +37,15 @@ Simple HCM SaaS의 UI는 Modern Enterprise HCM Admin Console을 지향한다.
 - 중소기업 관리자용 업무 SaaS
 - Sidebar + Header + Card + Table 중심 구조
 - 밝은 배경과 블루/그레이 중심 톤
-- Samsung Knox 스타일의 신뢰감과 정돈된 느낌
+- 신뢰감 있고 정돈된 관리자 콘솔 흐름
+- HR/HCM 업무 SaaS의 실용적인 화면 구조
 - 최신 B2B SaaS Dashboard 스타일
 
 주의:
 - 특정 제품 UI를 그대로 복제하지 않는다.
-- Simple HCM SaaS 기준으로 재구성한다.
+- 특정 브랜드나 제품명을 직접 기준으로 삼지 않는다.
+- Enterprise Admin Console의 구조감과 HR/HCM 업무 SaaS의 화면 흐름 참고 수준에서만 활용한다.
+- Simple HCM SaaS의 독자적인 Modern Enterprise HCM Admin Console 스타일로 재구성한다.
 - UI 구현 시 이 reference 이미지를 우선 참고한다.
 
 ## 레이아웃 기준
@@ -59,7 +64,7 @@ Simple HCM SaaS의 UI는 Modern Enterprise HCM Admin Console을 지향한다.
 - 명확한 primary button
 
 ## 피해야 할 방향
-- 특정 브랜드 UI를 그대로 복제하는 방향
+- 특정 제품 UI를 그대로 복제하는 방향
 - 복잡한 ERP 느낌
 - 과도한 애니메이션
 - 마케팅 랜딩페이지 같은 방향

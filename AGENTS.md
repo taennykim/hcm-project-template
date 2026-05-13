@@ -204,6 +204,8 @@ Task 기반 작업 관리
 - API Layer 분리
 - Mock 상태 명확히 구분
 - 실제 기능과 Mock 기능 UI 구분 가능해야 함
+- UI 변경 시 `docs/product/ui-style-guide.md`와 `docs/product/ui-reference/` assets를 함께 확인한다.
+- 특정 제품 UI를 복제하지 않고 Simple HCM SaaS의 독자적인 Admin Console 스타일을 유지한다.
 
 ---
 

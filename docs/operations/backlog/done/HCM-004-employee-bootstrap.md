@@ -78,3 +78,21 @@ REAL
 - 2026-05-13: 직원관리 화면 bootstrap 및 등록 패널 구현 완료
 - 2026-05-13: employee status/employment_type 입력값 제약 및 사번 중복 검증 추가
 - 2026-05-13: /api/employees, /api/employees/{employee_id} 기준 API import/build 검증 진행
+- 2026-05-13: HCM-004 보완 정리 진행, Employee UI route 기준 `/employee` 확인
+- 2026-05-13: Employee API endpoint 기준 `/api/employees`, `/api/employees/{employee_id}`, `/api/employees/{employee_id}/status` 재확인
+- 2026-05-13: Employee UI 구현 파일 `apps/web/app/employee/page.tsx` 기준 확인
+- 2026-05-13: Employee 구현은 FastAPI in-memory repository/service 기반임을 명시, PostgreSQL persistence는 후속 작업으로 분리
+- 2026-05-13: smoke test 후보에 `/api/employees`, `/api/employees/dev-employee-001`, `/employee` 검증 기준 추가
+- 2026-05-13: HCM-007 Attendance Bootstrap은 HCM-004 보완 마감 후 별도 task로 생성 예정으로 기록
+- 2026-05-13: Design Sync 확인 결과 menu-structure, ui-style-guide는 보강, domain-model 및 erd는 이번 범위에서 내용 변경 없이 유지
+- 2026-05-13: UI reference 문구를 특정 브랜드명 의존 없이 일반화하고, Employee UI 기준은 기존 UI Foundation 및 `ui-style-guide.md` 기준 유지로 정리
+
+## HCM-004 보완 메모
+- 현재 Employee UI route 기준은 `/employee` 이다.
+- 현재 Employee UI는 목록 조회와 등록 slide-over form까지 REAL 범위로 구현되어 있다.
+- Employee 상세 버튼은 존재하지만 실제 상세 화면 route는 아직 구현되지 않았다.
+- 현재 Employee API는 in-memory repository 형태의 `EmployeeService`로 동작한다.
+- 컨테이너 재시작 또는 프로세스 재시작 시 런타임 생성 데이터는 초기화될 수 있다.
+- 실제 PostgreSQL persistence, migration, repository 분리는 후속 작업으로 분리한다.
+- 이번 보완 단계에서는 신규 Employee 기능 추가, route rename, DB persistence 구현을 수행하지 않았다.
+- Employee UI 기준은 기존 UI Foundation과 `docs/product/ui-style-guide.md` 기준을 유지한다.

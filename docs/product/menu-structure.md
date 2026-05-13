@@ -19,9 +19,9 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - 회사 정책 설정: REAL
 
 ### Employee
-- 직원 목록: REAL
-- 직원 등록: REAL
-- 직원 상세: REAL
+- 직원 목록: REAL, route: `/employee`
+- 직원 등록: REAL, `/employee` 내 slide-over form
+- 직원 상세: MOCK, route 미정
 
 ### Attendance
 - 근태 입력: REAL
@@ -70,3 +70,8 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 ## UI 참고 기준
 - 화면 구현 시 `docs/product/ui-style-guide.md`와 UI reference assets를 함께 참고한다.
 - MVP 범위 내에서 동일한 Admin Console 스타일을 유지한다.
+
+## Route 기준 메모
+- Employee UI의 현재 구현 기준 route는 `/employee` 이다.
+- Employee API의 현재 구현 기준 endpoint는 `/api/employees`, `/api/employees/{employee_id}` 이다.
+- `/employees` UI route로의 rename은 검토 가능하나, 이번 단계에서는 실제 route 변경 없이 현재 구현 기준만 문서화한다.
