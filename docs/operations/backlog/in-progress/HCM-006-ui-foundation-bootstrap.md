@@ -70,4 +70,5 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: TODO
+- 상태: IN_PROGRESS
+- 2026-05-13: UI Foundation 구현 시작

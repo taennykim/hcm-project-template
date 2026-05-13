@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Simple HCM SaaS",
-  description: "Simple HCM SaaS MVP bootstrap"
+  description: "Simple HCM SaaS Admin Console"
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -14,4 +14,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
