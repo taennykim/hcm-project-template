@@ -49,10 +49,14 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-13
-- 상태: IN_PROGRESS
+- 상태: DONE
 - 2026-05-13: Minimal Product Design Docs 작성 시작
 - 2026-05-13: ERD Mermaid 필드 보강
 - 2026-05-13: API Style Guide 추가
 - 2026-05-13: Mock/Stub/Adapter 기준 추가
 - 2026-05-13: UI Style Guide 추가
 - 2026-05-13: HCM-004 구현 전 설계 기준 보강
+- 2026-05-13: HCM-005 완료
+- 2026-05-13: menu-structure, ui-style-guide, domain-model, erd, tech-stack 기준 정리 완료
+- 2026-05-13: Design Sync Rules 및 README 기술스택 참조 기준 확인 완료
+- 2026-05-13: UI reference asset 연결 확인 완료
