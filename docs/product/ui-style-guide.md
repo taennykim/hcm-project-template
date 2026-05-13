@@ -6,12 +6,50 @@ Simple HCM SaaS의 UI 방향은 중소기업 관리자용 업무 SaaS이다.
 관리자 중심 UX를 기준으로 한다.
 HCM 전체 사이트처럼 보이되, MVP 범위는 REAL, REAL-LITE, MOCK, COMING_SOON 상태로 통제한다.
 
+## UI Reference Direction
+Simple HCM SaaS의 UI는 Modern Enterprise HCM Admin Console을 지향한다.
+
+### 디자인 방향
+- 국내 HCM SaaS 업무 화면의 실용성
+- Samsung Knox 같은 Enterprise Admin Console의 신뢰감과 정돈된 구조
+- 최신 B2B SaaS Dashboard의 가벼운 사용성
+- 특정 제품 UI를 그대로 복제하지 않고 독자적인 Simple HCM SaaS 디자인으로 구성
+
+### 핵심 키워드
+- Clean
+- Trustworthy
+- Enterprise-light
+- Data-first
+- Admin-focused
+- Card + Table
+- Sidebar Navigation
+- Calm Blue / Slate Gray
+
+## UI Reference Assets
+현재 UI 기준 이미지는 아래 파일을 사용한다.
+
+- `docs/product/ui-reference/hcm-ui-reference-v1.png`
+
+이 이미지는 다음 방향을 표현한다.
+- Modern Enterprise HCM Admin Console
+- 중소기업 관리자용 업무 SaaS
+- Sidebar + Header + Card + Table 중심 구조
+- 밝은 배경과 블루/그레이 중심 톤
+- Samsung Knox 스타일의 신뢰감과 정돈된 느낌
+- 최신 B2B SaaS Dashboard 스타일
+
+주의:
+- 특정 제품 UI를 그대로 복제하지 않는다.
+- Simple HCM SaaS 기준으로 재구성한다.
+- UI 구현 시 이 reference 이미지를 우선 참고한다.
+
 ## 레이아웃 기준
 - 좌측 사이드바
 - 상단 헤더
 - 중앙 업무 화면
 - 카드형 요약
 - 테이블 중심 화면
+- 오른쪽 슬라이드오버 또는 모달 폼
 
 ## 스타일 톤
 - 밝은 배경
@@ -21,8 +59,10 @@ HCM 전체 사이트처럼 보이되, MVP 범위는 REAL, REAL-LITE, MOCK, COMIN
 - 명확한 primary button
 
 ## 피해야 할 방향
+- 특정 브랜드 UI를 그대로 복제하는 방향
 - 복잡한 ERP 느낌
 - 과도한 애니메이션
+- 마케팅 랜딩페이지 같은 방향
 - 모바일 앱 우선 설계
 - 대기업 HR 시스템 수준의 복잡한 화면
 

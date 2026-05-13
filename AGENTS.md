@@ -325,6 +325,10 @@ daily/YYYY-MM-DD.md 형식 사용
 
 - 코드 변경 후 관련 설계 문서를 확인한다.
 - UI 변경이 있으면 ui-style-guide.md와 menu-structure.md를 함께 확인한다.
+- UI 변경이 있으면 docs/product/ui-reference/ 이미지도 함께 확인한다.
+- UI 구현 시 ui-style-guide.md와 ui-reference assets를 함께 참고한다.
+- Sidebar/Header/Card/Table 구조를 기본 UI 패턴으로 유지한다.
+- 새로운 화면 추가 시 기존 UI reference와 톤 및 레이아웃 일관성을 유지한다.
 - 영향이 있으면 관련 문서를 업데이트한다.
 - 영향이 없으면 Task 문서 작업 로그에 '설계 문서 영향 없음'을 기록한다.
 - 문서와 코드가 충돌하면 AGENTS.md, README.md, Task 문서를 우선 확인하고 수정 방향을 제안한다.

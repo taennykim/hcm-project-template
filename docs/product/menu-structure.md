@@ -66,3 +66,7 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - REAL-LITE: 실제 데이터 일부를 사용하되, 복합 지표나 고급 통계 없이 최소 운영 화면만 제공
 - MOCK: 화면과 샘플 응답 중심 구현
 - COMING_SOON: 메뉴만 노출
+
+## UI 참고 기준
+- 화면 구현 시 `docs/product/ui-style-guide.md`와 UI reference assets를 함께 참고한다.
+- MVP 범위 내에서 동일한 Admin Console 스타일을 유지한다.
