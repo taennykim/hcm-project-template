@@ -6,7 +6,15 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 ## 실행 위치
 `infra/docker` 디렉토리
 
-## 기본 명령
+## Codex 검증
+- `python3 -m py_compile apps/api/app/main.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py`
+- FastAPI app import 검증
+- route 목록 확인
+- attendance service 직접 호출
+- `cd apps/web && npm install && npm run build`
+
+## 사용자 검증
+- `cd infra/docker && docker compose up -d --build api web nginx`
 - `docker compose ps`
 - `curl http://localhost/`
 - `curl http://localhost/api/health`
@@ -17,6 +25,7 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `curl http://localhost/api/employees/dev-employee-001`
 - `curl http://localhost/api/attendance-records`
 - `curl http://localhost/mock/health`
+- 브라우저에서 `http://localhost/attendance` 확인
 
 ## UI 확인
 - `http://localhost/`

@@ -125,3 +125,12 @@ REAL
 - 2026-05-14: `/api/attendance-records`, `/api/employees/{employee_id}/attendance-records` API 구현
 - 2026-05-14: `/attendance` UI route 및 근태 입력 slide panel 구현
 - 2026-05-14: `docs/operations/smoke-test.md` 보강, 설계 문서 영향 없음
+- 2026-05-14: HCM-007.5 검증 수행
+- 2026-05-14: `python3 -m py_compile apps/api/app/main.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py` 통과
+- 2026-05-14: `cd apps/web && npm install` 완료
+- 2026-05-14: `cd apps/web && npm run build` 통과, `/attendance` route 정적 생성 확인
+- 2026-05-14: FastAPI app import, route 목록 확인, service 직접 호출 검증은 로컬 Python에 `fastapi`/`pydantic` 부재로 실행 불가
+- 2026-05-14: `.venv-verify` 생성 후 `pip install -r apps/api/requirements.txt` 시도했으나 네트워크 제한으로 의존성 설치 실패
+- 2026-05-14: `docker compose up -d --build api web nginx` 는 Docker socket 권한 부족으로 실행 불가
+- 2026-05-14: `curl http://localhost/api/health`, `/api/employees`, `/api/attendance-records`, `/`, `/attendance` 는 이 세션 기준 localhost 연결 불가
+- 2026-05-14: 대체 검증으로 py_compile, Next.js production build, 빌드 산출 route 확인, smoke-test 책임 분리 문서화 수행
