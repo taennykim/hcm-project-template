@@ -115,7 +115,7 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-14
-- 상태: IN_PROGRESS
+- 상태: DONE
 - 2026-05-14: HCM-007.1 Attendance Input Bootstrap task 생성
 - 2026-05-14: HCM-007은 아직 구현 전이며, 다음 단계는 HCM-007.2 in-progress 이동으로 기록
 - 2026-05-14: HCM-007.2 in-progress 이동
@@ -138,3 +138,11 @@ REAL
 - 2026-05-14: web 502 원인은 Next.js 서버가 web 컨테이너 내부 `0.0.0.0:3000` 에 안정적으로 bind하지 않는 실행 구성 가능성으로 판단
 - 2026-05-14: `apps/web/package.json` start script를 `next start --hostname 0.0.0.0 --port 3000` 로 명시
 - 2026-05-14: `infra/docker/docker-compose.yml` web service에 command와 `HOSTNAME`/`PORT` 환경변수를 명시해 컨테이너 시작 경로를 고정
+- 2026-05-14: HCM-007.6 Design Sync 점검 완료
+- 2026-05-14: 설계 문서 영향 없음 또는 기존 설계와 일치
+- 2026-05-14: HCM-007.7 done 처리
+- 2026-05-14: Attendance API/UI 구현 완료
+- 2026-05-14: `/attendance`, `/api/attendance-records` 사용자 검증 완료
+- 2026-05-14: web 502 문제 수정 및 정상 확인 완료
+- 2026-05-14: PostgreSQL persistence 전환은 후속 작업으로 유지
+- 2026-05-14: 월 근태 집계는 HCM-008 이후 작업으로 분리
