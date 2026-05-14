@@ -134,3 +134,7 @@ REAL
 - 2026-05-14: `docker compose up -d --build api web nginx` 는 Docker socket 권한 부족으로 실행 불가
 - 2026-05-14: `curl http://localhost/api/health`, `/api/employees`, `/api/attendance-records`, `/`, `/attendance` 는 이 세션 기준 localhost 연결 불가
 - 2026-05-14: 대체 검증으로 py_compile, Next.js production build, 빌드 산출 route 확인, smoke-test 책임 분리 문서화 수행
+- 2026-05-14: 사용자 검증 결과 기준 `/` 와 `/attendance` 에서 nginx 502, web 컨테이너 내부 `localhost:3000` connection refused 현상 확인
+- 2026-05-14: web 502 원인은 Next.js 서버가 web 컨테이너 내부 `0.0.0.0:3000` 에 안정적으로 bind하지 않는 실행 구성 가능성으로 판단
+- 2026-05-14: `apps/web/package.json` start script를 `next start --hostname 0.0.0.0 --port 3000` 로 명시
+- 2026-05-14: `infra/docker/docker-compose.yml` web service에 command와 `HOSTNAME`/`PORT` 환경변수를 명시해 컨테이너 시작 경로를 고정

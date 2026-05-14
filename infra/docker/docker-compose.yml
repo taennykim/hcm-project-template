@@ -4,8 +4,12 @@ services:
       context: ../../apps/web
     container_name: hcm-web
     restart: unless-stopped
+    command: ["npm", "run", "start"]
     env_file:
       - .env
+    environment:
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
     expose:
       - "${WEB_PORT}"
     networks:
