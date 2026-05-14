@@ -157,6 +157,14 @@
 - 초기 급여 생성은 deterministic logic 기반의 단순 계산 구조로 시작한다.
 - 제외된 세법/4대보험/원천세/외부연동은 후속 Payroll Policy / Tax Calculation / External Integration task에서 단계적으로 구현 가능하다.
 
+## Payslip Logical Rules
+- Payslip은 PayrollRun과 Employee 기준으로 생성되는 급여명세서 표현 단위다.
+- Payslip은 PayrollItem의 `base_pay`, `overtime_pay`, `allowance_total`, `deduction_total`, `gross_pay`, `net_pay`를 표시한다.
+- `payroll_run_id`, `employee_id` 기준으로 중복 생성을 방지한다.
+- MVP에서는 화면/JSON 기반 조회를 우선 제공하고 PDF 생성, 이메일 발송, 전자문서 발행은 제외한다.
+- `status` 기본값은 `draft`로 시작하고, `issued` 상태에서만 `issued_at` 값을 가진다.
+- 세법/4대보험/원천세 상세 계산은 HCM-009/HCM-010 범위가 아니라 후속 Tax Calculation task에서 다룬다.
+
 ## Mock / Stub / Adapter 기준
 - 실제 외부 API는 MVP에서 직접 호출하지 않는다.
 - 외부 연동 대상은 `mock-server` 또는 Adapter 구조로 분리한다.

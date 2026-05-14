@@ -116,13 +116,18 @@
 - company_id
 - payroll_run_id
 - employee_id
+- year_month
 - status
 - issued_at
-- total_earnings
-- total_deductions
+- base_pay
+- overtime_pay
+- allowance_total
+- deduction_total
+- gross_pay
 - net_pay
 - created_at
 - updated_at
+- deleted_at
 
 ## Mermaid ERD
 
@@ -230,13 +235,18 @@ erDiagram
         string company_id FK
         string payroll_run_id FK
         string employee_id FK
+        string year_month
         string status
         datetime issued_at
-        decimal total_earnings
-        decimal total_deductions
+        decimal base_pay
+        decimal overtime_pay
+        decimal allowance_total
+        decimal deduction_total
+        decimal gross_pay
         decimal net_pay
         datetime created_at
         datetime updated_at
+        datetime deleted_at
     }
     TENANTS ||--o{ COMPANIES : owns
     COMPANIES ||--o{ EMPLOYEES : employs

@@ -31,7 +31,7 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 ### Payroll
 - 급여 실행: REAL, route: `/payroll`
 - 급여 항목 검토: REAL, route: `/payroll`
-- 급여명세서 출력: MOCK
+- 급여명세서 출력: REAL, route: `/payslip`
 
 ### Approval
 - 승인함: COMING_SOON
@@ -79,4 +79,6 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - Monthly Attendance Summary API의 현재 구현 기준 endpoint는 `/api/monthly-attendance-summaries`, `/api/monthly-attendance-summaries/{summary_id}` 이다.
 - Payroll UI의 현재 구현 기준 route는 `/payroll` 이다.
 - Payroll Run API의 현재 구현 기준 endpoint는 `/api/payroll-runs`, `/api/payroll-runs/{payroll_run_id}`, `/api/payroll-runs/{payroll_run_id}/items` 이다.
+- Payslip UI의 현재 구현 기준 route는 `/payslip` 이다.
+- Payslip API의 현재 구현 기준 endpoint는 `/api/payslips`, `/api/payslips/{payslip_id}`, `/api/payroll-runs/{payroll_run_id}/payslips` 이다.
 - `/employees` UI route로의 rename은 검토 가능하나, 이번 단계에서는 실제 route 변경 없이 현재 구현 기준만 문서화한다.

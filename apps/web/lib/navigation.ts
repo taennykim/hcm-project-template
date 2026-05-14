@@ -45,6 +45,12 @@ export const navigationItems: NavigationItem[] = [
     status: "REAL"
   },
   {
+    href: "/payslip",
+    label: "Payslip",
+    description: "급여명세서 조회",
+    status: "REAL"
+  },
+  {
     href: "/documents",
     label: "Documents",
     description: "전자계약과 문서",
