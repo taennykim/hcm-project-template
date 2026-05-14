@@ -115,6 +115,13 @@ REAL
 
 ## 작업 로그
 - 생성일: 2026-05-14
-- 상태: TODO
+- 상태: IN_PROGRESS
 - 2026-05-14: HCM-007.1 Attendance Input Bootstrap task 생성
 - 2026-05-14: HCM-007은 아직 구현 전이며, 다음 단계는 HCM-007.2 in-progress 이동으로 기록
+- 2026-05-14: HCM-007.2 in-progress 이동
+- 2026-05-14: HCM-007.3 Attendance API 구현 시작
+- 2026-05-14: HCM-007.4 Attendance UI 구현 시작
+- 2026-05-14: in-memory Attendance service 및 seed attendance record 기준 반영
+- 2026-05-14: `/api/attendance-records`, `/api/employees/{employee_id}/attendance-records` API 구현
+- 2026-05-14: `/attendance` UI route 및 근태 입력 slide panel 구현
+- 2026-05-14: `docs/operations/smoke-test.md` 보강, 설계 문서 영향 없음
