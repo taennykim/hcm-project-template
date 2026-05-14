@@ -15,8 +15,8 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
   - 오늘 처리할 항목 요약
 
 ### Company
-- 회사 정보: REAL
-- 회사 정책 설정: REAL
+- 회사 정보: REAL, route: `/company`
+- 회사 정책 설정: REAL, route: `/company`
 
 ### Employee
 - 직원 목록: REAL, route: `/employee`
@@ -73,6 +73,7 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 
 ## Route 기준 메모
 - Employee UI의 현재 구현 기준 route는 `/employee` 이다.
+- Company UI의 현재 구현 기준 route는 `/company` 이다.
 - Employee API의 현재 구현 기준 endpoint는 `/api/employees`, `/api/employees/{employee_id}` 이다.
 - Attendance UI의 현재 구현 기준 route는 `/attendance`, `/attendance/monthly-summary` 이다.
 - Monthly Attendance Summary API의 현재 구현 기준 endpoint는 `/api/monthly-attendance-summaries`, `/api/monthly-attendance-summaries/{summary_id}` 이다.

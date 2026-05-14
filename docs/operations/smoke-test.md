@@ -19,6 +19,7 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `cd infra/docker && docker compose up -d --build api web nginx`
 - `docker compose ps`
 - `curl http://localhost/`
+- `curl http://localhost/company`
 - `curl http://localhost/api/health`
 - `curl http://localhost/api/companies`
 - `curl http://localhost/api/companies/dev-company`
@@ -36,6 +37,7 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 ## UI 확인
 - `http://localhost/`
 - `http://localhost/employee`
+- `curl http://localhost/company`
 - `curl http://localhost/attendance`
 - `curl http://localhost/attendance/monthly-summary`
 - `curl http://localhost/payroll`

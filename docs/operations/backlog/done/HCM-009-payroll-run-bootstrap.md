@@ -158,3 +158,4 @@ REAL
 - 2026-05-14: in-memory persistence 유지
 - 2026-05-14: 세법/4대보험/원천세/홈택스/급여명세서 발행은 후속 task로 유지
 - 2026-05-14: Payslip은 HCM-010 이후 작업으로 분리
+- 2026-05-14: Payroll 구현과 별개로 navigation REAL route 정합성 보정을 위해 `/company` UI를 추가함
