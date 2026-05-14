@@ -182,6 +182,11 @@ Task 기반 작업 관리
 - soft delete 기본 고려
 - created_at / updated_at 기본 포함
 - 문서 없는 대규모 구조 변경 금지
+- HCM 개발 프로세스는 `docs/operations/development-process.md`를 따른다.
+- HCM-xxx는 backlog item이며, 프로세스 단계 번호가 아니다.
+- 큰 backlog 내부 세부 작업은 `HCM-xxx.1`, `HCM-xxx.2` 형식의 서브단계로 관리한다.
+- 기능 구현 전 Domain & Data Design 문서를 확인한다.
+- Attendance/Payroll 구현 전 `docs/domain/workflow-model.md`와 `docs/domain/policy-config.md`를 확인한다.
 
 ---
 

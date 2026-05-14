@@ -51,7 +51,11 @@
 - work_date
 - clock_in_at
 - clock_out_at
+- status
 - attendance_type
+- work_minutes
+- overtime_minutes
+- late_minutes
 - note
 - created_at
 - updated_at
@@ -98,6 +102,7 @@
 - company_id
 - payroll_run_id
 - employee_id
+- status
 - issued_at
 - total_earnings
 - total_deductions
@@ -147,7 +152,11 @@ erDiagram
         date work_date
         datetime clock_in_at
         datetime clock_out_at
+        string status
         string attendance_type
+        int work_minutes
+        int overtime_minutes
+        int late_minutes
         datetime created_at
         datetime updated_at
         datetime deleted_at
@@ -193,6 +202,7 @@ erDiagram
         string company_id FK
         string payroll_run_id FK
         string employee_id FK
+        string status
         datetime issued_at
         decimal total_earnings
         decimal total_deductions
@@ -225,3 +235,9 @@ erDiagram
 - `hire_date`
 - `resignation_date`
 - `status`
+
+## Status 필드 메모
+- `attendance_records.status`는 `not_entered`, `present`, `late`, `absent`, `leave`, `early_leave` 기준을 따른다.
+- `payroll_runs.status`는 `draft`, `calculated`, `reviewed`, `confirmed`, `closed`, `error` 기준을 따른다.
+- `payroll_items.item_type`는 `earning`, `deduction` 기준을 따른다.
+- `payslips.status`는 `draft`, `issued`, `canceled` 기준을 따른다.

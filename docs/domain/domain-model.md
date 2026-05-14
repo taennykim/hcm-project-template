@@ -44,6 +44,47 @@
 - 회사별 근태/급여 정책 JSON 설정
 - 예: 출퇴근 시간, 점심시간, 급여 지급일, 반올림 단위
 
+## Status Enum Definitions
+
+### EmployeeStatus
+- active: 재직
+- on_leave: 휴직
+- inactive: 비활성
+- resigned: 퇴사
+- upcoming: 입사 예정
+
+### AttendanceStatus
+- not_entered: 미입력
+- present: 출근
+- late: 지각
+- absent: 결근
+- leave: 휴가
+- early_leave: 조퇴
+
+### AttendanceType
+- workday: 근무일
+- holiday: 휴일
+- paid_leave: 유급휴가
+- unpaid_leave: 무급휴가
+- business_trip: 출장
+
+### PayrollRunStatus
+- draft: 초안
+- calculated: 계산완료
+- reviewed: 검토완료
+- confirmed: 확정
+- closed: 마감
+- error: 오류
+
+### PayrollItemType
+- earning: 지급
+- deduction: 공제
+
+### PayslipStatus
+- draft: 초안
+- issued: 발행
+- canceled: 취소
+
 ## 도메인 관계
 - Tenant 1:N Company
 - Company 1:N Employee
@@ -74,6 +115,24 @@
   - created_at
   - updated_at
   - deleted_at
+
+## Attendance Logical Rules
+- AttendanceRecord는 직원별 일자별 근태 원천 데이터다.
+- `employee_id`, `work_date` 기준으로 중복 입력을 방지한다.
+- `clock_in_at` / `clock_out_at`은 nullable로 시작한다.
+- `status`가 `absent`, `leave`이면 출퇴근 시간이 없을 수 있다.
+- `work_minutes`, `overtime_minutes`, `late_minutes`는 MVP에서는 저장값으로 시작하되, 추후 계산 로직으로 전환 가능하다.
+- 지각 기준은 `policy_config.attendance.work_start_time`과 `late_grace_minutes`를 기준으로 한다.
+- 점심시간은 `policy_config.attendance.lunch_minutes`를 기준으로 한다.
+- 복잡한 교대근무는 MVP 범위에서 제외한다.
+
+## Payroll Logical Rules
+- PayrollRun은 `company_id`와 `year_month` 기준 급여 생성 실행 단위다.
+- PayrollRun이 `confirmed` 또는 `closed` 상태가 되면 재계산/수정 정책을 별도로 정의해야 한다.
+- PayrollItem은 `earning` 또는 `deduction`으로 구분한다.
+- Payslip은 PayrollRun과 Employee 기준으로 생성된다.
+- MVP에서는 세법/4대보험 자동 계산을 완전 구현하지 않는다.
+- 초기 급여 생성은 deterministic logic 기반의 단순 계산 구조로 시작한다.
 
 ## Mock / Stub / Adapter 기준
 - 실제 외부 API는 MVP에서 직접 호출하지 않는다.
