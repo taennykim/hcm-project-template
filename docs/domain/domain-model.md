@@ -144,11 +144,18 @@
 
 ## Payroll Logical Rules
 - PayrollRun은 `company_id`와 `year_month` 기준 급여 생성 실행 단위다.
+- PayrollRun은 MonthlyAttendanceSummary를 참조해 생성한다.
+- `company_id`, `year_month` 기준으로 중복 생성을 방지한다.
 - PayrollRun이 `confirmed` 또는 `closed` 상태가 되면 재계산/수정 정책을 별도로 정의해야 한다.
-- PayrollItem은 `earning` 또는 `deduction`으로 구분한다.
+- PayrollItem은 employee별 급여 결과 레코드다.
+- `payroll_run_id`, `employee_id` 기준으로 중복 생성을 방지한다.
+- MVP에서는 고정 기본급과 단순 연장수당(`overtime_minutes * 10000`) 기준으로 계산을 시작한다.
+- `gross_pay = base_pay + overtime_pay + allowance_total`
+- `net_pay = gross_pay - deduction_total`
 - Payslip은 PayrollRun과 Employee 기준으로 생성된다.
-- MVP에서는 세법/4대보험 자동 계산을 완전 구현하지 않는다.
+- MVP에서는 세법/4대보험/원천세 자동 계산을 완전 구현하지 않는다.
 - 초기 급여 생성은 deterministic logic 기반의 단순 계산 구조로 시작한다.
+- 제외된 세법/4대보험/원천세/외부연동은 후속 Payroll Policy / Tax Calculation / External Integration task에서 단계적으로 구현 가능하다.
 
 ## Mock / Stub / Adapter 기준
 - 실제 외부 API는 MVP에서 직접 호출하지 않는다.

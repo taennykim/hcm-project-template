@@ -29,8 +29,8 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - 월 근태 집계: REAL, route: `/attendance/monthly-summary`
 
 ### Payroll
-- 급여 실행: MOCK
-- 급여 항목 검토: MOCK
+- 급여 실행: REAL, route: `/payroll`
+- 급여 항목 검토: REAL, route: `/payroll`
 - 급여명세서 출력: MOCK
 
 ### Approval
@@ -76,4 +76,6 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - Employee API의 현재 구현 기준 endpoint는 `/api/employees`, `/api/employees/{employee_id}` 이다.
 - Attendance UI의 현재 구현 기준 route는 `/attendance`, `/attendance/monthly-summary` 이다.
 - Monthly Attendance Summary API의 현재 구현 기준 endpoint는 `/api/monthly-attendance-summaries`, `/api/monthly-attendance-summaries/{summary_id}` 이다.
+- Payroll UI의 현재 구현 기준 route는 `/payroll` 이다.
+- Payroll Run API의 현재 구현 기준 endpoint는 `/api/payroll-runs`, `/api/payroll-runs/{payroll_run_id}`, `/api/payroll-runs/{payroll_run_id}/items` 이다.
 - `/employees` UI route로의 rename은 검토 가능하나, 이번 단계에서는 실제 route 변경 없이 현재 구현 기준만 문서화한다.

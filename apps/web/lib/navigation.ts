@@ -42,7 +42,7 @@ export const navigationItems: NavigationItem[] = [
     href: "/payroll",
     label: "Payroll",
     description: "급여 생성과 검토",
-    status: "MOCK"
+    status: "REAL"
   },
   {
     href: "/documents",

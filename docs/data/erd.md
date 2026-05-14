@@ -85,9 +85,14 @@
 - company_id
 - year_month
 - status
+- total_employees
+- total_gross_pay
+- total_deductions
+- total_net_pay
 - executed_at
 - created_at
 - updated_at
+- deleted_at
 
 ### payroll_items
 - id
@@ -95,9 +100,13 @@
 - company_id
 - payroll_run_id
 - employee_id
-- item_type
-- item_name
-- amount
+- year_month
+- base_pay
+- overtime_pay
+- allowance_total
+- deduction_total
+- gross_pay
+- net_pay
 - created_at
 - updated_at
 
@@ -190,9 +199,14 @@ erDiagram
         string company_id FK
         string year_month
         string status
+        int total_employees
+        decimal total_gross_pay
+        decimal total_deductions
+        decimal total_net_pay
         datetime executed_at
         datetime created_at
         datetime updated_at
+        datetime deleted_at
     }
     PAYROLL_ITEMS {
         string id PK
@@ -200,9 +214,13 @@ erDiagram
         string company_id FK
         string payroll_run_id FK
         string employee_id FK
-        string item_type
-        string item_name
-        decimal amount
+        string year_month
+        decimal base_pay
+        decimal overtime_pay
+        decimal allowance_total
+        decimal deduction_total
+        decimal gross_pay
+        decimal net_pay
         datetime created_at
         datetime updated_at
     }
@@ -250,5 +268,4 @@ erDiagram
 - `attendance_records.status`는 `not_entered`, `present`, `late`, `absent`, `leave`, `early_leave` 기준을 따른다.
 - `monthly_attendance_summaries.status`는 `draft`, `summarized`, `reviewing`, `confirmed`, `error` 기준을 따른다.
 - `payroll_runs.status`는 `draft`, `calculated`, `reviewed`, `confirmed`, `closed`, `error` 기준을 따른다.
-- `payroll_items.item_type`는 `earning`, `deduction` 기준을 따른다.
 - `payslips.status`는 `draft`, `issued`, `canceled` 기준을 따른다.
