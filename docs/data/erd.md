@@ -69,10 +69,15 @@
 - year_month
 - total_work_minutes
 - overtime_minutes
+- late_minutes
 - late_count
 - absent_count
+- leave_count
+- workday_count
+- status
 - created_at
 - updated_at
+- deleted_at
 
 ### payroll_runs
 - id
@@ -169,10 +174,15 @@ erDiagram
         string year_month
         int total_work_minutes
         int overtime_minutes
+        int late_minutes
         int late_count
         int absent_count
+        int leave_count
+        int workday_count
+        string status
         datetime created_at
         datetime updated_at
+        datetime deleted_at
     }
     PAYROLL_RUNS {
         string id PK
@@ -238,6 +248,7 @@ erDiagram
 
 ## Status 필드 메모
 - `attendance_records.status`는 `not_entered`, `present`, `late`, `absent`, `leave`, `early_leave` 기준을 따른다.
+- `monthly_attendance_summaries.status`는 `draft`, `summarized`, `reviewing`, `confirmed`, `error` 기준을 따른다.
 - `payroll_runs.status`는 `draft`, `calculated`, `reviewed`, `confirmed`, `closed`, `error` 기준을 따른다.
 - `payroll_items.item_type`는 `earning`, `deduction` 기준을 따른다.
 - `payslips.status`는 `draft`, `issued`, `canceled` 기준을 따른다.

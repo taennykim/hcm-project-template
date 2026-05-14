@@ -68,6 +68,13 @@
 - unpaid_leave: 무급휴가
 - business_trip: 출장
 
+### MonthlyAttendanceSummaryStatus
+- draft: 초안
+- summarized: 집계완료
+- reviewing: 검토중
+- confirmed: 확정
+- error: 오류
+
 ### PayrollRunStatus
 - draft: 초안
 - calculated: 계산완료
@@ -125,6 +132,15 @@
 - 지각 기준은 `policy_config.attendance.work_start_time`과 `late_grace_minutes`를 기준으로 한다.
 - 점심시간은 `policy_config.attendance.lunch_minutes`를 기준으로 한다.
 - 복잡한 교대근무는 MVP 범위에서 제외한다.
+
+## Monthly Attendance Summary Logical Rules
+- MonthlyAttendanceSummary는 AttendanceRecord를 월 단위로 집계한 결과다.
+- `employee_id`, `year_month` 기준으로 중복 생성을 방지한다.
+- `total_work_minutes`, `overtime_minutes`, `late_minutes`는 AttendanceRecord 합산 기준이다.
+- `late_count`, `absent_count`, `leave_count`는 AttendanceRecord의 `status` 기준 카운트다.
+- `workday_count`는 AttendanceRecord의 `attendance_type`이 `workday`인 건수 기준으로 시작한다.
+- MVP에서는 in-memory AttendanceRecord 데이터를 기준으로 월 집계를 생성한다.
+- 집계 확정/마감 정책은 Payroll 단계 이전에 별도 보강 가능하다.
 
 ## Payroll Logical Rules
 - PayrollRun은 `company_id`와 `year_month` 기준 급여 생성 실행 단위다.

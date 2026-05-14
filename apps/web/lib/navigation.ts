@@ -33,6 +33,12 @@ export const navigationItems: NavigationItem[] = [
     status: "REAL"
   },
   {
+    href: "/attendance/monthly-summary",
+    label: "Attendance Summary",
+    description: "월별 근태 집계",
+    status: "REAL"
+  },
+  {
     href: "/payroll",
     label: "Payroll",
     description: "급여 생성과 검토",

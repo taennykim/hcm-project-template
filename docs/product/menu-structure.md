@@ -24,9 +24,9 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - 직원 상세: MOCK, route 미정
 
 ### Attendance
-- 근태 입력: REAL
-- 근태 기록 조회: REAL
-- 월 근태 집계: REAL
+- 근태 입력: REAL, route: `/attendance`
+- 근태 기록 조회: REAL, route: `/attendance`
+- 월 근태 집계: REAL, route: `/attendance/monthly-summary`
 
 ### Payroll
 - 급여 실행: MOCK
@@ -74,4 +74,6 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 ## Route 기준 메모
 - Employee UI의 현재 구현 기준 route는 `/employee` 이다.
 - Employee API의 현재 구현 기준 endpoint는 `/api/employees`, `/api/employees/{employee_id}` 이다.
+- Attendance UI의 현재 구현 기준 route는 `/attendance`, `/attendance/monthly-summary` 이다.
+- Monthly Attendance Summary API의 현재 구현 기준 endpoint는 `/api/monthly-attendance-summaries`, `/api/monthly-attendance-summaries/{summary_id}` 이다.
 - `/employees` UI route로의 rename은 검토 가능하나, 이번 단계에서는 실제 route 변경 없이 현재 구현 기준만 문서화한다.
