@@ -22,7 +22,7 @@
    - PayrollItem 생성
 5. Payslip Issue
    - PayrollItem 기반으로 Payslip 생성
-   - MVP에서는 출력/PDF는 MOCK 가능
+   - MVP에서는 Payslip 조회는 REAL로 구현하고, PDF/이메일/전자문서 발행은 후속 task로 분리
 
 ## Mermaid Flow
 
@@ -37,5 +37,5 @@ flowchart TD
     B1[AttendanceRecord upsert by employee_id and work_date] --> B
     C1[Aggregate monthly work, overtime, late, absent metrics] --> C
     D1[Apply company policy_config to payroll calculation] --> D
-    E1[Generate payslip output or mock PDF] --> E
+    E1[Generate payslip JSON or UI view and defer PDF delivery] --> E
 ```

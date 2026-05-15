@@ -10,234 +10,110 @@ Simple HCM SaaS를 Codex/AI 기반으로 일관되게 개발하기 위한 재사
 - done backlog는 완료된 작업 증적이다.
 - 다른 SaaS 프로젝트에서는 HCM-xxx 대신 해당 프로젝트의 backlog 번호를 사용할 수 있다.
 
-## 3. Process Areas
+## 3. AI Development Reference Flow
+AI가 개발 시 문서를 참고하는 순서를 정리한다.
 
-### 3.1 Project Definition
-목적:
-- 제품 목표, MVP 범위, 제외 범위, 기본 작업 원칙을 정의한다.
+순서:
+1. README.md
+2. AGENTS.md
+3. docs/operations/development-process.md
+4. docs/product/menu-structure.md
+5. docs/product/ui-style-guide.md
+6. docs/domain/domain-model.md
+7. docs/domain/workflow-model.md
+8. docs/domain/policy-config.md
+9. docs/data/erd.md
+10. docs/architecture/tech-stack.md
+11. current backlog task
+12. existing implementation
+13. implementation
+14. verification
+15. completion and sync
 
+## 4. Process Areas
+
+### 4.1 Project Definition
 산출물:
-- `README.md`
-- `AGENTS.md`
+- README.md
+- AGENTS.md
 
-포함 내용:
-- 제품명
-- 프로젝트 목표
-- MVP 핵심 흐름
-- Out of Scope
-- 기술스택 요약
-- Codex/AI 작업 규칙
-- Mock/Real 원칙
-- `tenant_id` 기본 원칙
-
-### 3.2 Runtime & Deployment Foundation
-목적:
-- 로컬/서버에서 앱을 실행할 수 있는 최소 런타임 구조를 만든다.
-
+### 4.2 Runtime & Deployment Foundation
 산출물:
-- `infra/docker/docker-compose.yml`
-- `infra/docker/.env.example`
-- `infra/docker/nginx/default.conf`
-- `apps/web/Dockerfile`
-- `apps/api/Dockerfile`
-- `mock-server/Dockerfile`
-- `docs/architecture/tech-stack.md`
+- infra/docker/docker-compose.yml
+- infra/docker/.env.example
+- infra/docker/nginx/default.conf
+- apps/web/Dockerfile
+- apps/api/Dockerfile
+- mock-server/Dockerfile
+- docs/architecture/tech-stack.md
 
-포함 내용:
-- Docker Compose 구조
-- `web` / `api` / `db` / `mock-server` / `nginx` 구성
-- 외부 공개 포트 정책
-- 내부 네트워크 정책
-- PostgreSQL 외부 미노출 원칙
-- nginx reverse proxy 기준
-
-### 3.3 Work Management & History
-목적:
-- AI/Codex 기반 개발 과정에서 작업 단위와 이력을 추적한다.
-
+### 4.3 Work Management & History
 산출물:
-- `docs/operations/backlog/todo/`
-- `docs/operations/backlog/in-progress/`
-- `docs/operations/backlog/done/`
-- `docs/operations/daily/YYYY-MM-DD.md`
+- docs/operations/backlog/todo/
+- docs/operations/backlog/in-progress/
+- docs/operations/backlog/done/
+- docs/operations/daily/YYYY-MM-DD.md
 
-규칙:
-- `todo` -> `in-progress` -> `done`
-- HCM-xxx는 backlog item이다.
-- 작업 완료 후 daily log를 업데이트한다.
-
-### 3.4 Product Structure Design
-목적:
-- MVP가 전체 HCM 사이트처럼 보이도록 제품 메뉴, 기능 범위, 화면 방향을 정의한다.
-
+### 4.4 Product Structure Design
 산출물:
-- `docs/product/menu-structure.md`
-- `docs/product/ui-style-guide.md`
-- `docs/product/ui-reference/`
+- docs/product/menu-structure.md
+- docs/product/ui-style-guide.md
+- docs/product/ui-reference/
 
-포함 내용:
-- 전체 메뉴 구조
-- REAL / MOCK / COMING_SOON 기준
-- UI route 기준
-- Admin Console UI 방향
-- Badge System
-- UI reference asset
-
-### 3.5 Domain & Data Design
-목적:
-- 업무 도메인과 데이터 구조를 먼저 정리하여 기능 구현 기준을 고정한다.
-
+### 4.5 Domain & Data Design
 산출물:
-- `docs/domain/domain-model.md`
-- `docs/domain/workflow-model.md`
-- `docs/domain/policy-config.md`
-- `docs/data/erd.md`
+- docs/domain/domain-model.md
+- docs/domain/workflow-model.md
+- docs/domain/policy-config.md
+- docs/data/erd.md
 
-포함 내용:
-- Tenant
-- Company
-- Employee
-- Attendance
-- MonthlyAttendanceSummary
-- PayrollRun
-- PayrollItem
-- Payslip
-- `tenant_id` 원칙
-- `company_id` 원칙
-- status enum 기준
-- soft delete 기준
-- 민감정보 저장 금지
-- 회사별 `policy_config` 기준
-
-### 3.6 UI Foundation
-목적:
-- 각 기능 화면을 만들기 전에 공통 UI 골격을 만든다.
-
+### 4.6 UI Foundation
 산출물:
-- `apps/web/components/layout/`
-- `apps/web/components/ui/`
-- `apps/web/lib/navigation.ts`
-- `apps/web/app/page.tsx`
+- apps/web/components/layout/
+- apps/web/components/ui/
+- apps/web/lib/navigation.ts
+- apps/web/app/page.tsx
 
-포함 내용:
-- AppLayout
-- Sidebar
-- Header
-- PageContainer
-- Card
-- Button
-- Input
-- Table
-- Badge
-- Dashboard 기본 화면
-
-### 3.7 Feature Development
-목적:
-- MVP 업무 기능을 실제 API/UI 단위로 구현한다.
-
+### 4.7 Feature Development
 산출물:
+
 Backend:
-- `apps/api/app/domains/{domain}/router.py`
-- `apps/api/app/domains/{domain}/schemas.py`
-- `apps/api/app/domains/{domain}/service.py`
+- apps/api/app/domains/{domain}/router.py
+- apps/api/app/domains/{domain}/schemas.py
+- apps/api/app/domains/{domain}/service.py
 
 Frontend:
-- `apps/web/app/{feature}/page.tsx`
+- apps/web/app/{feature}/page.tsx
 
 Operations:
-- `docs/operations/backlog/{status}/HCM-xxx-*.md`
-- `docs/operations/daily/YYYY-MM-DD.md`
-- `docs/operations/smoke-test.md`
+- docs/operations/backlog/{status}/HCM-xxx-*.md
+- docs/operations/daily/YYYY-MM-DD.md
+- docs/operations/smoke-test.md
 
-표준 흐름:
-1. Feature backlog 생성
-2. `todo` -> `in-progress` 이동
-3. Backend API 구현
-4. Frontend UI 구현
-5. seed/mock data 구성
-6. Design Sync 수행
-7. Smoke Test 보강
-8. `done` 이동
-
-### 3.8 Integration & Mock Strategy
-목적:
-- 외부 API 연동이 필요한 기능을 실제 연동 전에 Mock/Stub/Adapter 구조로 관리한다.
-
+### 4.8 Integration & Mock Strategy
 산출물:
-- `mock-server/`
-- `docs/domain/domain-model.md`
-- `docs/product/menu-structure.md`
-- 향후 `docs/integration/*`
+- mock-server/
+- 향후 docs/integration/*
 
-포함 내용:
-- 실제 외부 API 직접 호출 금지
-- `mock-server` 또는 adapter로 분리
-- Mock/Real 전환 가능 구조
-- 홈택스, 4대보험, 전자계약, 회계연동 등은 MVP에서 Mock 또는 COMING_SOON
-
-### 3.9 Verification & Smoke Test
-목적:
-- 기능이 서버/컨테이너/브라우저 수준에서 정상 동작하는지 확인한다.
-
+### 4.9 Verification & Smoke Test
 산출물:
-- `docs/operations/smoke-test.md`
-- 향후 `scripts/smoke-test.sh`
+- docs/operations/smoke-test.md
+- 향후 scripts/smoke-test.sh
 
-검증 기준:
-- `python3 -m py_compile`
-- `npm run build`
-- `docker compose up -d --build`
-- curl smoke test
-- 브라우저 UI 확인
-
-환경 제약 시:
-- 대체 검증을 task 로그에 기록한다.
-- 예: Docker Compose 검증 불가 -> app import, router handler 호출, npm build로 대체 검증
-
-### 3.10 Completion & Documentation Sync
-목적:
-- 기능 완료 시 문서와 이력을 정리하고 다음 작업으로 넘어갈 수 있게 한다.
-
+### 4.10 Completion & Documentation Sync
 산출물:
-- `docs/operations/backlog/done/HCM-xxx-*.md`
-- `docs/operations/daily/YYYY-MM-DD.md`
+- docs/operations/backlog/done/HCM-xxx-*.md
+- docs/operations/daily/YYYY-MM-DD.md
 - updated design docs
 - git commit / push
 
-완료 기준:
-- task 목적과 구현 범위가 일치함
-- 제외 범위를 침범하지 않음
-- Design Sync 완료
-- smoke test 또는 대체 검증 완료
-- daily log 업데이트
-- `git status` clean
-
-## 4. HCM Backlog Numbering Rule
+## 5. HCM Backlog Numbering Rule
 - HCM-xxx는 개발 프로세스 단계 번호가 아니다.
 - HCM-xxx는 특정 주제에 대해 수행된 backlog item이다.
-- 예:
-  - HCM-001 = Project Bootstrap backlog
-  - HCM-002 = Docker Compose Bootstrap backlog
-  - HCM-003 = Tenant/Company Bootstrap backlog
-  - HCM-004 = Employee Bootstrap backlog
-  - HCM-005 = Product/Domain/UI Design Docs backlog
-  - HCM-006 = UI Foundation backlog
-  - HCM-007 = Attendance Input backlog 예정
-- 다른 프로젝트에서는 HCM-xxx 번호를 그대로 따르지 않아도 된다.
-
-## 5. Sub-step Rule
-- 큰 backlog 안에서 세부 작업이 필요한 경우 새 큰 번호를 계속 만들지 않고 서브단계를 사용한다.
-- 예:
-  - HCM-007.1 task 생성
-  - HCM-007.2 `in-progress` 이동
-  - HCM-007.3 Attendance API 구현
-  - HCM-007.4 Attendance UI 구현
-  - HCM-007.5 `smoke-test.md` 보강
-  - HCM-007.6 Design Sync
-  - HCM-007.7 done 처리
+- 큰 backlog 내부 세부 작업은 HCM-xxx.1, HCM-xxx.2 형태로 관리한다.
 
 ## 6. Current Project Mapping
-현재 `hcm-project-template` 기준 매핑은 아래와 같다.
+GitHub main의 실제 done backlog 기준 현재 매핑은 아래와 같다.
 
 | Process Area | Backlog Item | Status |
 |---|---|---|
@@ -247,48 +123,113 @@ Operations:
 | Employee Feature Development | HCM-004 | Done |
 | Product/Domain/Data/UI Design | HCM-005 | Done |
 | UI Foundation | HCM-006 | Done |
-| Attendance Feature Development | HCM-007 | Planned |
+| Attendance Feature Development | HCM-007 | Done |
+| Monthly Attendance Summary Feature Development | HCM-008 | Done |
+| Payroll Run Feature Development | HCM-009 | Done |
+| Payslip Feature Development | HCM-010 | Done |
 
-## 7. Roadmap
+## 7. Current Implementation Status
+현재 코드 기준 구현 범위는 아래와 같다.
 
-### HCM-007 Attendance Input Bootstrap
-- HCM-007.1 task 생성
-- HCM-007.2 `in-progress` 이동
-- HCM-007.3 Attendance API 구현
-- HCM-007.4 Attendance UI 구현
-- HCM-007.5 `smoke-test.md` 보강
-- HCM-007.6 Design Sync
-- HCM-007.7 done 처리
+### Backend API
+- /api/health
+- /api/companies
+- /api/companies/{company_id}
+- /api/companies/{company_id}/policy
+- /api/employees
+- /api/employees/{employee_id}
+- /api/employees/{employee_id}/status
+- /api/employees/{employee_id}/attendance-records
+- /api/employees/{employee_id}/monthly-attendance-summaries
+- /api/employees/{employee_id}/payroll-items
+- /api/employees/{employee_id}/payslips
+- /api/attendance-records
+- /api/attendance-records/{attendance_record_id}
+- /api/monthly-attendance-summaries
+- /api/monthly-attendance-summaries/generate
+- /api/monthly-attendance-summaries/{summary_id}
+- /api/payroll-runs
+- /api/payroll-runs/generate
+- /api/payroll-runs/{payroll_run_id}
+- /api/payroll-runs/{payroll_run_id}/items
+- /api/payroll-runs/{payroll_run_id}/payslips
+- /api/payslips
+- /api/payslips/generate
+- /api/payslips/{payslip_id}
 
-### HCM-008 Monthly Attendance Summary Bootstrap
-- HCM-008.1 task 생성
-- HCM-008.2 월 근태 집계 도메인/API 구현
-- HCM-008.3 월별 직원 근태 요약 UI 구현
-- HCM-008.4 `smoke-test.md` 보강
-- HCM-008.5 done 처리
+### Frontend UI Route
+- /
+- /company
+- /employee
+- /attendance
+- /attendance/monthly-summary
+- /payroll
+- /payslip
 
-### HCM-009 Payroll Run Bootstrap
-- HCM-009.1 task 생성
-- HCM-009.2 급여 실행 도메인/API 구현
-- HCM-009.3 급여 생성 UI 구현
-- HCM-009.4 `smoke-test.md` 보강
-- HCM-009.5 done 처리
+### Smoke Test Coverage
+- /, /company, /attendance, /attendance/monthly-summary, /payroll, /payslip
+- /api/health
+- /api/companies
+- /api/companies/dev-company
+- /api/companies/dev-company/policy
+- /api/employees
+- /api/employees/dev-employee-001
+- /api/attendance-records
+- /api/monthly-attendance-summaries
+- /api/payroll-runs
+- /api/payslips
+- /mock/health
 
-### HCM-010 Payslip Bootstrap
-- HCM-010.1 task 생성
-- HCM-010.2 급여명세서 도메인/API 구현
-- HCM-010.3 급여명세서 UI/출력 Mock 구현
-- HCM-010.4 REAL/MOCK 범위 재검토
-- HCM-010.5 done 처리
+## 8. Persistence Status
+- Runtime stack에는 PostgreSQL이 포함되어 있다.
+- 현재 기능 구현은 대부분 in-memory service/repository 기반이다.
+- PostgreSQL persistence 전환은 HCM-011부터 진행할 예정이다.
+- HCM-011의 1차 대상은 Company/Employee persistence 전환이다.
+- Attendance/MonthlyAttendance/Payroll/Payslip persistence 전환은 후속 task로 분리 가능하다.
 
-## 8. Reuse Guide
-다른 SaaS 프로젝트에 적용할 때는 다음 순서로 재사용한다.
-- Project Definition
-- Runtime Foundation
-- Work Management
-- Product Structure Design
-- Domain & Data Design
-- UI Foundation
-- Feature Development
-- Verification
-- Completion
+## 9. Roadmap
+HCM-010이 done이므로 다음 로드맵은 HCM-011부터 정리한다.
+
+### HCM-011 PostgreSQL Persistence Foundation
+- HCM-011.1 persistence 전환 범위 정리
+- HCM-011.2 Company persistence 전환
+- HCM-011.3 Employee persistence 전환
+- HCM-011.4 smoke test 및 runtime 검증
+- HCM-011.5 done 처리
+
+### HCM-012 Attendance/Monthly Attendance Persistence Migration
+- HCM-012.1 Attendance persistence 전환
+- HCM-012.2 Monthly Attendance persistence 전환
+- HCM-012.3 generate 로직 persistence 기준 보강
+- HCM-012.4 verification
+- HCM-012.5 done 처리
+
+### HCM-013 Payroll/Payslip Persistence Migration
+- HCM-013.1 PayrollRun persistence 전환
+- HCM-013.2 PayrollItem persistence 전환
+- HCM-013.3 Payslip persistence 전환
+- HCM-013.4 verification
+- HCM-013.5 done 처리
+
+### HCM-014 Payroll Policy / Tax Calculation Stub
+- HCM-014.1 정책 범위 정의
+- HCM-014.2 세법/4대보험/원천세 stub 설계
+- HCM-014.3 deterministic calculation 보강
+- HCM-014.4 verification
+- HCM-014.5 done 처리
+
+### HCM-015 External Integration / PDF / Notification 확장 후보
+- HCM-015.1 PDF 출력 구조 정의
+- HCM-015.2 이메일/알림 구조 정의
+- HCM-015.3 외부 연동 adapter 확장
+- HCM-015.4 verification
+- HCM-015.5 done 처리
+
+## 10. Reuse Guide
+다른 SaaS 프로젝트에 적용할 때는 HCM 번호를 재사용하는 것이 아니라, 주제별 프로세스와 산출물을 재사용한다.
+즉 backlog 번호는 프로젝트마다 달라질 수 있고, 재사용 대상은 아래다.
+- 문서 참조 순서
+- Process Areas
+- backlog 운영 규칙
+- verification / completion 규칙
+- persistence 전환 로드맵 분리 방식

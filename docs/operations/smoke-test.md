@@ -7,7 +7,7 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 `infra/docker` 디렉토리
 
 ## Codex 검증
- - `python3 -m py_compile apps/api/app/main.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py apps/api/app/domains/monthly_attendance/*.py apps/api/app/domains/payroll/*.py apps/api/app/domains/payslip/*.py`
+- `python3 -m py_compile apps/api/app/main.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py apps/api/app/domains/monthly_attendance/*.py apps/api/app/domains/payroll/*.py apps/api/app/domains/payslip/*.py`
 - FastAPI app import 검증
 - route 목록 확인
 - attendance service 직접 호출
@@ -32,6 +32,8 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `curl http://localhost/api/payroll-runs`
 - `curl http://localhost/api/payslips`
 - `curl http://localhost/mock/health`
+- 브라우저에서 `http://localhost/company` 확인
+- 브라우저에서 `http://localhost/employee` 확인
 - 브라우저에서 `http://localhost/attendance` 확인
 - 브라우저에서 `http://localhost/attendance/monthly-summary` 확인
 - 브라우저에서 `http://localhost/payroll` 확인
@@ -39,12 +41,12 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 
 ## UI 확인
 - `http://localhost/`
+- `http://localhost/company`
 - `http://localhost/employee`
-- `curl http://localhost/company`
-- `curl http://localhost/attendance`
-- `curl http://localhost/attendance/monthly-summary`
-- `curl http://localhost/payroll`
-- `curl http://localhost/payslip`
+- `http://localhost/attendance`
+- `http://localhost/attendance/monthly-summary`
+- `http://localhost/payroll`
+- `http://localhost/payslip`
 
 ## 주의
 - 현재 Employee 데이터는 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
