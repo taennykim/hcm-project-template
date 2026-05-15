@@ -7,7 +7,7 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 `infra/docker` 디렉토리
 
 ## Codex 검증
-- `python3 -m py_compile apps/api/app/main.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py apps/api/app/domains/monthly_attendance/*.py apps/api/app/domains/payroll/*.py apps/api/app/domains/payslip/*.py`
+- `python3 -m py_compile apps/api/app/main.py apps/api/app/db/*.py apps/api/app/domains/tenant/*.py apps/api/app/domains/employee/*.py apps/api/app/domains/attendance/*.py apps/api/app/domains/monthly_attendance/*.py apps/api/app/domains/payroll/*.py apps/api/app/domains/payslip/*.py apps/api/alembic/env.py apps/api/alembic/versions/*.py`
 - FastAPI app import 검증
 - route 목록 확인
 - attendance service 직접 호출
@@ -17,8 +17,10 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `cd apps/web && npm install && npm run build`
 
 ## 사용자 검증
-- `cd infra/docker && docker compose up -d --build api web nginx`
+- `cd infra/docker && docker compose up -d --build db api web nginx`
 - `docker compose ps`
+- `docker compose exec api sh -lc 'cd /app && alembic upgrade head'`
+- `docker compose exec api sh -lc 'cd /app && python -m app.db.init_db'`
 - `curl http://localhost/`
 - `curl http://localhost/company`
 - `curl http://localhost/api/health`
@@ -32,6 +34,9 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `curl http://localhost/api/payroll-runs`
 - `curl http://localhost/api/payslips`
 - `curl http://localhost/mock/health`
+- `docker compose restart api web nginx`
+- `curl http://localhost/api/companies`
+- `curl http://localhost/api/employees`
 - 브라우저에서 `http://localhost/company` 확인
 - 브라우저에서 `http://localhost/employee` 확인
 - 브라우저에서 `http://localhost/attendance` 확인
@@ -49,11 +54,12 @@ Docker Compose 기반 MVP가 기본 기능을 정상 응답하는지 빠르게 �
 - `http://localhost/payslip`
 
 ## 주의
-- 현재 Employee 데이터는 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
+- Company / Employee는 HCM-011부터 PostgreSQL persistence 대상으로 전환된다.
 - 현재 Attendance 데이터도 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
 - 현재 Monthly Attendance Summary 데이터도 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
 - 현재 Payroll Run / Payroll Item 데이터도 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
 - 현재 Payslip 데이터도 in-memory 기반이므로 컨테이너 재시작 시 생성 데이터가 초기화될 수 있다.
+- migration은 Alembic 기준으로 적용하고 DB volume 삭제 없이 유지한다.
 - DB persistence는 후속 작업에서 다룬다.
 
 ## 502 점검 메모

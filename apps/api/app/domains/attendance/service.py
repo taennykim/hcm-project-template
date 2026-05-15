@@ -4,6 +4,7 @@ from datetime import date, datetime, timezone
 
 from fastapi import HTTPException, status
 
+from app.domains.employee.service import employee_service
 from app.domains.attendance.schemas import (
     AttendanceRecord,
     AttendanceRecordCreate,
@@ -156,11 +157,15 @@ class AttendanceService:
         return record
 
     def _ensure_employee_exists(self, employee_id: str) -> None:
-        if employee_id not in {"dev-employee-001", "dev-employee-002"}:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Employee '{employee_id}' is not available in this bootstrap.",
-            )
+        try:
+            employee_service.get_employee(employee_id)
+        except HTTPException as exc:
+            if exc.status_code == status.HTTP_404_NOT_FOUND:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"Employee '{employee_id}' is not available in this bootstrap.",
+                ) from exc
+            raise
 
     def _ensure_unique_employee_work_date(
         self,

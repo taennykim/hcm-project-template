@@ -16,10 +16,12 @@
 - 실제 고객 회사 정보
 - Tenant 하위 소속
 - 회사별 정책 설정(`policy_config`) 보유
+- HCM-011부터 기본 persistence 대상
 
 ### Employee
 - 특정 Company 소속 직원
 - employee_no, employment_type, status 기반으로 관리
+- HCM-011부터 기본 persistence 대상
 
 ### AttendanceRecord
 - 일 단위 또는 이벤트 단위 근태 기록

@@ -182,9 +182,10 @@ GitHub main의 실제 done backlog 기준 현재 매핑은 아래와 같다.
 
 ## 8. Persistence Status
 - Runtime stack에는 PostgreSQL이 포함되어 있다.
-- 현재 기능 구현은 대부분 in-memory service/repository 기반이다.
-- PostgreSQL persistence 전환은 HCM-011부터 진행할 예정이다.
-- HCM-011의 1차 대상은 Company/Employee persistence 전환이다.
+- 현재 기능 구현 중 Company / Employee는 HCM-011에서 PostgreSQL persistence 1차 전환을 진행한다.
+- Attendance / MonthlyAttendanceSummary / PayrollRun / Payslip은 여전히 in-memory service/repository 기반이다.
+- PostgreSQL persistence 전환은 HCM-011부터 단계적으로 진행한다.
+- HCM-011의 1차 대상은 Company / Employee persistence 전환이다.
 - Attendance/MonthlyAttendance/Payroll/Payslip persistence 전환은 후속 task로 분리 가능하다.
 
 ## 9. Roadmap
