@@ -1,10 +1,11 @@
 # Menu Structure
 
 ## 방향
-Simple HCM SaaS는 관리자 중심 웹 UX를 기준으로 구성한다.
+Simple HCM SaaS는 현재 관리자 중심 웹 UX를 기준으로 구성한다.
 모바일 앱은 MVP 범위에서 제외한다.
 전체적으로 HCM 제품처럼 보이되, 초기 MVP 범위만 실제 구현하고 나머지는 MOCK 또는 COMING_SOON으로 통제한다.
 UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
+현재 구현 메뉴는 Admin Console 기준이며, Employee Self-Service 메뉴는 후속 후보로 관리한다.
 
 ## 메뉴 구조
 
@@ -32,6 +33,11 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - 급여 실행: REAL, route: `/payroll`
 - 급여 항목 검토: REAL, route: `/payroll`
 - 급여명세서 출력: REAL, route: `/payslip`
+
+### Employee Self-Service Candidate
+- 내 정보: CANDIDATE, route: `/my`
+- 내 근태 조회/입력/수정/삭제: CANDIDATE, route: `/my/attendance`
+- 내 급여명세서 조회: CANDIDATE, route: `/my/payslip`
 
 ### Approval
 - 승인함: COMING_SOON
@@ -72,6 +78,9 @@ UI 방향의 상세 기준은 `docs/product/ui-style-guide.md`를 참조한다.
 - MVP 범위 내에서 동일한 Admin Console 스타일을 유지한다.
 
 ## Route 기준 메모
+- 현재 구현된 route는 Admin Console 기준이다.
+- Employee Self-Service 후보 route는 `/my`, `/my/attendance`, `/my/payslip` 이다.
+- Employee Self-Service는 아직 구현 전 후보이며, MVP에서는 Role Switcher 기반으로 admin/employee 역할을 시뮬레이션한다.
 - Employee UI의 현재 구현 기준 route는 `/employee` 이다.
 - Company UI의 현재 구현 기준 route는 `/company` 이다.
 - Employee API의 현재 구현 기준 endpoint는 `/api/employees`, `/api/employees/{employee_id}` 이다.

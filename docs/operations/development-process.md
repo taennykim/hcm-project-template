@@ -182,49 +182,59 @@ GitHub main의 실제 done backlog 기준 현재 매핑은 아래와 같다.
 
 ## 8. Persistence Status
 - Runtime stack에는 PostgreSQL이 포함되어 있다.
-- 현재 기능 구현 중 Company / Employee는 HCM-011에서 PostgreSQL persistence 1차 전환을 진행한다.
+- Company / Employee는 HCM-011에서 PostgreSQL persistence 1차 전환이 완료되었다.
 - Attendance / MonthlyAttendanceSummary / PayrollRun / Payslip은 여전히 in-memory service/repository 기반이다.
 - PostgreSQL persistence 전환은 HCM-011부터 단계적으로 진행한다.
 - HCM-011의 1차 대상은 Company / Employee persistence 전환이다.
 - Attendance/MonthlyAttendance/Payroll/Payslip persistence 전환은 후속 task로 분리 가능하다.
 
 ## 9. Roadmap
-HCM-010이 done이므로 다음 로드맵은 HCM-011부터 정리한다.
-
-### HCM-011 PostgreSQL Persistence Foundation
-- HCM-011.1 persistence 전환 범위 정리
-- HCM-011.2 Company persistence 전환
-- HCM-011.3 Employee persistence 전환
-- HCM-011.4 smoke test 및 runtime 검증
-- HCM-011.5 done 처리
+HCM-011이 done이므로 다음 로드맵은 HCM-012부터 정리한다.
 
 ### HCM-012 Attendance/Monthly Attendance Persistence Migration
 - HCM-012.1 Attendance persistence 전환
 - HCM-012.2 Monthly Attendance persistence 전환
 - HCM-012.3 generate 로직 persistence 기준 보강
-- HCM-012.4 verification
-- HCM-012.5 done 처리
+- HCM-012.4 Attendance soft delete API 추가 후보
+- HCM-012.5 Employee Self-Service에서 재사용 가능한 employee_id 기준 Attendance API 안정화
+- HCM-012.6 verification
+- HCM-012.7 done 처리
 
-### HCM-013 Payroll/Payslip Persistence Migration
-- HCM-013.1 PayrollRun persistence 전환
-- HCM-013.2 PayrollItem persistence 전환
-- HCM-013.3 Payslip persistence 전환
-- HCM-013.4 verification
-- HCM-013.5 done 처리
+### HCM-013 RBAC & Employee Self-Service Foundation
+- HCM-013.1 Role Switcher 구조 정의
+- HCM-013.2 Admin / Employee 메뉴 분리 기준 정의
+- HCM-013.3 `/my`, `/my/attendance`, `/my/payslip` route bootstrap
+- HCM-013.4 Employee role에서 본인 근태 입력/수정/삭제 흐름 정의
+- HCM-013.5 기존 Attendance API 재사용 + selectedEmployeeId 제한 기준 정리
+- HCM-013.6 verification
+- HCM-013.7 done 처리
 
-### HCM-014 Payroll Policy / Tax Calculation Stub
-- HCM-014.1 정책 범위 정의
-- HCM-014.2 세법/4대보험/원천세 stub 설계
-- HCM-014.3 deterministic calculation 보강
+### HCM-014 Payroll/Payslip Persistence Migration
+- HCM-014.1 PayrollRun persistence 전환
+- HCM-014.2 PayrollItem persistence 전환
+- HCM-014.3 Payslip persistence 전환
 - HCM-014.4 verification
 - HCM-014.5 done 처리
 
-### HCM-015 External Integration / PDF / Notification 확장 후보
-- HCM-015.1 PDF 출력 구조 정의
-- HCM-015.2 이메일/알림 구조 정의
-- HCM-015.3 외부 연동 adapter 확장
+### RBAC / Employee Self-Service 기준 메모
+- MVP에서는 실제 로그인/인증/JWT를 구현하지 않고 Role Switcher로 admin/employee 역할을 시뮬레이션한다.
+- Employee role은 selectedEmployeeId 기준으로 본인 데이터만 조회/입력/수정/삭제한다.
+- Employee Self-Service 근태 기능은 별도 /api/me API를 만들지 않고 기존 Attendance API를 재사용한다.
+- API-level RBAC, JWT, User/Role DB persistence는 후속 Auth/RBAC task에서 구현한다.
+
+### HCM-015 Payroll Policy / Tax Calculation Stub
+- HCM-015.1 정책 범위 정의
+- HCM-015.2 세법/4대보험/원천세 stub 설계
+- HCM-015.3 deterministic calculation 보강
 - HCM-015.4 verification
 - HCM-015.5 done 처리
+
+### HCM-016 External Integration / PDF / Notification 확장 후보
+- HCM-016.1 PDF 출력 구조 정의
+- HCM-016.2 이메일/알림 구조 정의
+- HCM-016.3 외부 연동 adapter 확장
+- HCM-016.4 verification
+- HCM-016.5 done 처리
 
 ## 10. Reuse Guide
 다른 SaaS 프로젝트에 적용할 때는 HCM 번호를 재사용하는 것이 아니라, 주제별 프로세스와 산출물을 재사용한다.

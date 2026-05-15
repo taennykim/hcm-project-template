@@ -46,6 +46,35 @@
 - 회사별 근태/급여 정책 JSON 설정
 - 예: 출퇴근 시간, 점심시간, 급여 지급일, 반올림 단위
 
+### User / Role / RBAC Candidate
+- MVP에서는 실제 로그인/인증/JWT를 구현하지 않고 Role Switcher로 admin/employee 역할을 시뮬레이션한다.
+- MVP Role Switcher 상태는 `selectedRole = admin | employee` 와 `selectedEmployeeId = dev-employee-001 | dev-employee-002` 기준으로 시작한다.
+- 실제 User/Role DB persistence는 후속 task에서 정의한다.
+- API-level RBAC, JWT, User/Role DB persistence는 후속 Auth/RBAC task에서 구현한다.
+
+### Admin User Candidate
+- 회사 정보/정책 조회
+- 직원 관리
+- 전체 근태 관리
+- 월 근태 집계 실행
+- 급여 생성
+- 전체 급여명세서 관리
+
+### Employee User Candidate
+- 내 정보 조회
+- 내 근태 조회
+- 내 근태 입력
+- 내 근태 수정
+- 내 근태 삭제 또는 취소
+- 내 급여명세서 조회
+- 다른 직원 데이터 조회/수정 불가
+
+### System / Integration User Candidate
+- 배치
+- 외부 연동
+- PDF/알림/이메일 발행
+- 후속 task에서 정의
+
 ## Status Enum Definitions
 
 ### EmployeeStatus
@@ -166,6 +195,33 @@
 - MVP에서는 화면/JSON 기반 조회를 우선 제공하고 PDF 생성, 이메일 발송, 전자문서 발행은 제외한다.
 - `status` 기본값은 `draft`로 시작하고, `issued` 상태에서만 `issued_at` 값을 가진다.
 - 세법/4대보험/원천세 상세 계산은 HCM-009/HCM-010 범위가 아니라 후속 Tax Calculation task에서 다룬다.
+
+## RBAC / Employee Self-Service Logical Rules
+- Employee role은 selectedEmployeeId 기준으로 본인 데이터만 조회/입력/수정/삭제한다.
+- Employee Self-Service 근태 기능은 별도 /api/me API를 만들지 않고 기존 Attendance API를 재사용한다.
+- Employee User는 본인 근태를 입력, 수정, 삭제/취소할 수 있어야 한다.
+- 삭제는 physical delete가 아니라 deleted_at 기반 soft delete를 원칙으로 한다.
+- MVP Role Switcher 단계에서는 UI에서 selectedEmployeeId 기준으로 본인 데이터만 노출한다.
+- 실제 API-level RBAC 강제는 후속 Auth/RBAC task에서 구현한다.
+- Employee User의 내 근태 입력/수정/삭제는 AttendanceRecord persistence 전환 이후에도 동일한 권한 기준을 유지해야 한다.
+
+## 권한 매트릭스 초안
+
+| 기능 | Admin | Employee |
+|---|---:|---:|
+| 회사 정보 조회 | O | X |
+| 회사 정책 수정 | 후보 | X |
+| 직원 목록 조회 | O | X |
+| 내 정보 조회 | O | O |
+| 전체 근태 조회 | O | X |
+| 내 근태 조회 | O | O |
+| 내 근태 입력 | O | O |
+| 내 근태 수정 | O | O |
+| 내 근태 삭제/취소 | O | O |
+| 월 근태 집계 실행 | O | X |
+| 급여 생성 | O | X |
+| 전체 급여명세서 조회 | O | X |
+| 내 급여명세서 조회 | O | O |
 
 ## Mock / Stub / Adapter 기준
 - 실제 외부 API는 MVP에서 직접 호출하지 않는다.
